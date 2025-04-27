@@ -116,3 +116,12 @@ Templates
 * `tracking/dashboard.html` - for the dashboard page
 * `tracking/snippets/stats.html` - standalone content for the dashboard page
   (simplifies overriding templates)
+
+Template Tags
+---------
+* 'page_view_count' - return the # of page views
+```python
+{% load tracking2 %}
+
+Views: {% page_view_count %}
+```
