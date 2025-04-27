@@ -96,9 +96,9 @@ do the following:
 Include `tracking.urls` in your `urls.py`:
 
 ```python
+from django.urls import include, path
 urlpatterns = [
-    ...
-    re_path(r'^tracking/', include('tracking.urls')),
+    path('tracking/', include('tracking.urls')),
     ...
 ]
 ```
@@ -121,7 +121,7 @@ Template Tags
 ---------
 * 'page_view_count' - return the # of page views
 ```python
-{% load tracking2 %}
+{% load tracking %}
 
 Views: {% page_view_count %}
 ```
