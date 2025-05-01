@@ -7,7 +7,9 @@ register = template.Library()
 
 @register.simple_tag(takes_context=True)
 def page_view_count(context):
-    if context.request.path:
-        return Pageview.objects.filter(
-            url__contains=context.request.path,
-        ).count()
+    if request := context.get("request"):
+        if path := request.get("path"):
+            return Pageview.objects.filter(
+                url__contains=path,
+            ).count()
+    return None
